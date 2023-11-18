@@ -24,7 +24,12 @@ public class Team implements Cloneable{
     //shallow copy
     @Override
     public Object clone() throws CloneNotSupportedException{
+        /**shallow copy
         return super.clone();
+        **/
+        Team copyTeam = new Team(this.teamName);
+        copyTeam.employeeList = new ArrayList<>(this.employeeList);
+        return copyTeam;
     }
 
     @Override

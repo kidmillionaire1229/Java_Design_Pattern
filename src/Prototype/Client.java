@@ -17,7 +17,7 @@ public class Client {
         //원본 Team의 0번째 index에 있는 Employee를 수정
         firstTeam.getEmployeeList().set(0, new Employee("Gale"));
 
-        //shallow copy이기 때문에, CopyTeam의 0번째 index까지 같이 수정됨
+        //deep copy이기 때문에, copyTeam은 수정되지 않음
         System.out.println("firstTeam's members: " +firstTeam.getEmployeeList());
         System.out.println("copyTeam's members: " +copyTeam.getEmployeeList());
     }
