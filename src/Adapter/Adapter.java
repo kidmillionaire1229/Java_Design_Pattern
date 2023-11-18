@@ -1,6 +1,6 @@
 package Adapter;
 
-public class Adapter implements Target{
+public class Adapter extends Service implements Target {
 
     private Service adaptee;
 
@@ -10,6 +10,6 @@ public class Adapter implements Target{
 
     @Override
     public void method(int data) {
-        adaptee.specificMethod(data);
+        specificMethod(data);
     }
 }
