@@ -16,4 +16,12 @@ public class Font {
     public int getSize() {
         return size;
     }
+
+    @Override
+    public String toString() {
+        return "Font{" +
+                "family='" + family + '\'' +
+                ", size=" + size +
+                '}';
+    }
 }
