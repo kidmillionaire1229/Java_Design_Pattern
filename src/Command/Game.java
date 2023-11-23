@@ -1,4 +1,4 @@
-package Command.Before;
+package Command;
 
 public class Game {
     private boolean isStarted;
@@ -11,7 +11,7 @@ public class Game {
         System.out.println("게임을 종료합니다.");
         this.isStarted = false;
     }
-    public boolean isStarted() {
+    public boolean isStarted() {;
         return isStarted;
     }
 }
