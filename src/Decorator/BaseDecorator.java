@@ -11,4 +11,11 @@ public class BaseDecorator implements Notifier{
     public void send(String message) {
         wrapee.send(message);
     }
+
+    @Override
+    public String toString() {
+        return "BaseDecorator{" +
+                "wrapee=" + wrapee +
+                '}';
+    }
 }

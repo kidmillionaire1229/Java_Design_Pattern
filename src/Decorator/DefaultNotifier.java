@@ -6,4 +6,6 @@ public class DefaultNotifier implements Notifier{
     public void send(String message) {
         System.out.println("[Email] "+message);
     }
+
+
 }

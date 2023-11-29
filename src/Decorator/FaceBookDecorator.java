@@ -10,4 +10,5 @@ public class FaceBookDecorator extends BaseDecorator{
         super.send(message);
         System.out.println("[FaceBook] " +message);
     }
+
 }

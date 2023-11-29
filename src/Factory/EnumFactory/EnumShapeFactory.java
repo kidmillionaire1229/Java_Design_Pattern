@@ -1,7 +1,7 @@
 package Factory.EnumFactory;
 
 
-public enum EnumShapeFac tory {
+public enum EnumShapeFactory {
     RECTANGLE{
         @Override
         public Shape createShape(){
