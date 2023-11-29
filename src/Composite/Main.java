@@ -22,6 +22,13 @@ public class Main {
         box.addComponent(subBox);
 
         Client client = new Client();
+
+        /**getPrice 호출 순서
+        Main Box
+        Sub Box (Product banana , Product apple)
+        Product (Product armor, Product sword)
+
+         **/
         client.printPrice(box);
     }
 }
