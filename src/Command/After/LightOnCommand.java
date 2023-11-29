@@ -1,5 +1,7 @@
 package Command.After;
 import Command.Light;
+
+//ConcreteCommand : Command 구현
 public class LightOnCommand implements Command{
     private Light light;
 

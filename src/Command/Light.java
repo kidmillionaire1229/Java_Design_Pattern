@@ -1,5 +1,7 @@
 package Command;
 
+
+//Receiver
 public class Light {
     private boolean isOn;
     public void on() {

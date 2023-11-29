@@ -1,5 +1,7 @@
 package Command.After;
 import Command.Game;
+
+//ConcreteCommand : Command 구현 
 public class GameStartcommand implements Command{
     private Game game;
 

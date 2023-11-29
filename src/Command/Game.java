@@ -1,5 +1,7 @@
 package Command;
 
+
+//Receiver
 public class Game {
     private boolean isStarted;
 
