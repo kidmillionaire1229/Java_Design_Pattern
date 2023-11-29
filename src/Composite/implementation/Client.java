@@ -1,4 +1,4 @@
-package Composite;
+package Composite.implementation;
 
 public class Client {
     public void printPrice(Component box){

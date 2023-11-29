@@ -1,9 +1,9 @@
-package Composite;
+package Composite.implementation;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Box implements Component{
+public class Box implements Component {
     private List<Component> componentList;
     private String name;
 
