@@ -1,4 +1,4 @@
-package Factory.AfterRefactoring;
+package Factory.FactoryMethod.AfterRefactoring;
 
 public class ConcreteShip implements Ship{
 

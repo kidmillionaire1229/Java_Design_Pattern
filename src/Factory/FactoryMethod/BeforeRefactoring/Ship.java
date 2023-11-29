@@ -1,4 +1,4 @@
-package Factory.BeforeRefactoring;
+package Factory.FactoryMethod.BeforeRefactoring;
 
 public class Ship{
     private String name;

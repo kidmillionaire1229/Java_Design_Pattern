@@ -1,4 +1,4 @@
-package Factory.AfterRefactoring;
+package Factory.FactoryMethod.AfterRefactoring;
 
 public class Client {
     private void print(ShipFactory shipFactory, String name){

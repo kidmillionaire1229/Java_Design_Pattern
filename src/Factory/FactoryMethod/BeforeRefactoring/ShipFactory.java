@@ -1,6 +1,6 @@
-package Factory.BeforeRefactoring;
+package Factory.FactoryMethod.BeforeRefactoring;
 
-import Factory.BeforeRefactoring.Ship;
+import Factory.FactoryMethod.BeforeRefactoring.Ship;
 
 public class ShipFactory {
     public static Ship orderShip(String name){

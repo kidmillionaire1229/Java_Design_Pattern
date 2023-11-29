@@ -1,4 +1,4 @@
-package Factory.AfterRefactoring;
+package Factory.FactoryMethod.AfterRefactoring;
 
 public interface Ship {
     void setName(String name);

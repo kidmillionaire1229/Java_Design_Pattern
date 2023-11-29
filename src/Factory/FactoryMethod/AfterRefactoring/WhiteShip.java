@@ -1,4 +1,4 @@
-package Factory.AfterRefactoring;
+package Factory.FactoryMethod.AfterRefactoring;
 
 public class WhiteShip extends ConcreteShip{
     public WhiteShip(){
