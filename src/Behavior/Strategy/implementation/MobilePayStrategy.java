@@ -1,6 +1,6 @@
-package Behavior.Strategy;
+package Behavior.Strategy.implementation;
 
-public class MobilePayStrategy implements PaymentStrategy{
+public class MobilePayStrategy implements PaymentStrategy {
     private String email;
     private String password;
 

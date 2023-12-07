@@ -1,5 +1,7 @@
-package Behavior.Strategy;
+package Behavior.Strategy.implementation;
 
+import Behavior.Strategy.implementation.Item;
+import Behavior.Strategy.implementation.PaymentStrategy;
 import java.util.ArrayList;
 import java.util.List;
 

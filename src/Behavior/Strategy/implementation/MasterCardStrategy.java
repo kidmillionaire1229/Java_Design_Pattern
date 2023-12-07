@@ -1,6 +1,6 @@
-package Behavior.Strategy;
+package Behavior.Strategy.implementation;
 
-public class MasterCardStrategy implements PaymentStrategy{
+public class MasterCardStrategy implements PaymentStrategy {
     private String name;
     private String cardNumber;
     private String cvv;

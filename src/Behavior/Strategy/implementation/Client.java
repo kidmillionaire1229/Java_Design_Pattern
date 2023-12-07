@@ -1,4 +1,4 @@
-package Behavior.Strategy;
+package Behavior.Strategy.implementation;
 
 public class Client {
 
