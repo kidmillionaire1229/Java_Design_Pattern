@@ -1,6 +1,8 @@
-package Behavior.TemplateMethod;
+package Behavior.TemplateMethod.implementation;
 
-public class MultiplyFileProcessor extends FileProcessor{
+import Behavior.TemplateMethod.implementation.FileProcessor;
+
+public class MultiplyFileProcessor extends FileProcessor {
 
     public MultiplyFileProcessor(String path) {
         super(path);

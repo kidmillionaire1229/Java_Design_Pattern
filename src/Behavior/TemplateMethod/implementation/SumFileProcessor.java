@@ -1,6 +1,8 @@
-package Behavior.TemplateMethod;
+package Behavior.TemplateMethod.implementation;
 
-public class SumFileProcessor extends FileProcessor{
+import Behavior.TemplateMethod.implementation.FileProcessor;
+
+public class SumFileProcessor extends FileProcessor {
 
     public SumFileProcessor(String path) {
         super(path);

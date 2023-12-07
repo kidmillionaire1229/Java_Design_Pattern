@@ -1,4 +1,4 @@
-package Behavior.TemplateMethod;
+package Behavior.TemplateMethod.implementation;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
