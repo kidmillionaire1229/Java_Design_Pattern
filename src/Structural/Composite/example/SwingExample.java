@@ -1,4 +1,4 @@
-package Composite.example;
+package Structural.Composite.example;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;

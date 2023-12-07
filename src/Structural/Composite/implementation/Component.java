@@ -1,4 +1,4 @@
-package Composite.implementation;
+package Structural.Composite.implementation;
 
 public interface Component {
     int getPrice();

@@ -1,6 +1,4 @@
-package Composite.implementation;
-
-import Composite.implementation.Component;
+package Structural.Composite.implementation;
 
 public class Product implements Component {
 
