@@ -1,6 +1,6 @@
-package Command.Before;
+package Behavior.Command.Before;
 
-import Command.Light;
+import Behavior.Command.Light;
 
 public class Button {
     private Light light;

@@ -1,4 +1,4 @@
-package Flyweight;
+package Structural.Flyweight;
 
 public class Client {
 

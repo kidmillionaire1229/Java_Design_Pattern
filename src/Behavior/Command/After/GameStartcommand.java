@@ -1,7 +1,7 @@
-package Command.After;
-import Command.Game;
+package Behavior.Command.After;
+import Behavior.Command.Game;
 
-//ConcreteCommand : Command 구현 
+//ConcreteCommand : Behavior.Command 구현
 public class GameStartcommand implements Command{
     private Game game;
 

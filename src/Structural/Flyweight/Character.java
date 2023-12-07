@@ -1,9 +1,9 @@
-package Flyweight;
+package Structural.Flyweight;
 
 public class Character {
     private char value;
     private String color;
-    //intrinsit object (Flyweight)
+    //intrinsit object (Structural.Flyweight)
     private Font font;
 
     public Character(char value, String color, Font font) {

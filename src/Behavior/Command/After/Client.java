@@ -1,6 +1,6 @@
-package Command.After;
-import Command.Light;
-import Command.Game;
+package Behavior.Command.After;
+import Behavior.Command.Light;
+import Behavior.Command.Game;
 public class Client {
 
     public static void main(String[] args) {

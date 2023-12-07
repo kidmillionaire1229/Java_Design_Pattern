@@ -1,6 +1,6 @@
-package Memento;
+package Behavior.Memento;
 
-import Memento.Editor.Snapshot;
+import Behavior.Memento.Editor.Snapshot;
 import java.util.Stack;
 
 public class Command {

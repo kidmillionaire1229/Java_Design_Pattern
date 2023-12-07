@@ -1,7 +1,7 @@
-package Command.After;
-import Command.Light;
+package Behavior.Command.After;
+import Behavior.Command.Light;
 
-//ConcreteCommand : Command 구현
+//ConcreteCommand : Behavior.Command 구현
 public class LightOffCommand implements Command{
     private Light light;
 

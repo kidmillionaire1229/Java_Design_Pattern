@@ -1,4 +1,4 @@
-package Memento;
+package Behavior.Memento;
 
 public class Editor {
     private String text;
@@ -43,7 +43,7 @@ public class Editor {
         private String text;
         private int posX, posY;
 
-        //Memento
+        //Behavior.Memento
         Snapshot(){
             this.text = Editor.this.text;
             this.posX = Editor.this.posX;
