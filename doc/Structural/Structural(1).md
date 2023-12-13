@@ -3,7 +3,7 @@
 - 호완성이 없는 인터페이스 때문에 함께 동작할 수 없는 클래스들을 어댑터를 통해 함께 작동할 수 있도록 변환 
   - 이미 구축 되어있는 것을 새로운 어떤 것에 사용하려고 할 때, 양 쪽간의 호환성 유지해주기 위해 
 ### 객체 어댑터 구조 
-![img.png](Structural/Adapter/ObjectAdapter.png)
+![img.png](Adapter/ObjectAdapter.png)
 - Client interface 
   - 다른 클래스들이 클라이언트 코드와 공동 작업 시, 해당 프로토콜을 따라야함
   - Client interface 통해서 메소드가 호출되어야함 
@@ -20,7 +20,7 @@
       - 주입 받은 Service의 메소드를 호출하여 작업을 위임한다.
       - Client의 규약을 따르되, Client에서 직접 Service를 호출하지 않고, Adapter를 통해서 호출하게 된다. 
 ### 클래스 어댑터 구조 
-![img.png](Structural/Adapter/ClassAdapter.png)
+![img.png](Adapter/ClassAdapter.png)
 - 객체 어댑터 구조에서 Service를 주입 받아 수행한 것과 달리, _**Adapter에서 Service를 상속하여**_, Adapter에서 Service 호출 
 - 다중 상속을 지원하는 C++같은 언어에서 활용 가능하다. 
   - 자바 소스코드에서는 다중 상속이 불가능하므로 다음과 같이 구현한다. 
@@ -31,7 +31,7 @@
 - 이미 만든 것을 재사용하고자 하나, 수정은 하고 싶지 않을 때 
 - 소프트웨어 구 버전과 신 버전을 공존 시키고 싶을 때 
 ### 예시 
-![img.png](Structural/Adapter/AdapterExample.png)
+![img.png](Adapter/AdapterExample.png)
 ### 장점 
 - SRP 준수 
   - 프로그램의 기본 비즈니스 로직에서 ***인터페이스를 분리***할 수 있다. 
@@ -68,9 +68,9 @@
 - 각 기능에 대한 구현부를 담당하는 레이어 
 
 ### 구조 
-![img.png](Structural/Bridge/BridgeStructure.png)
+![img.png](Bridge/BridgeStructure.png)
 #### 예시 구조  
-![img.png](Structural/Bridge/bridgeExample.png)
+![img.png](Bridge/bridgeExample.png)
 - Remote
   - Abstraction 
   - 상위 수준의 제어 논리 제공 
@@ -131,7 +131,7 @@
     - Box에서 또 다른 Sub Box 재귀적인 호출 
     - 단일 Products 나올 때까지 재귀 호출 반복 
 ### 구조 
-![img.png](Structural/Compositre/CompositeStructure.png)
+![img.png](Compositre/CompositeStructure.png)
 - Component interface 
   - 트리에서 단일 객체(leaf)와 복합 객체(Composite) 모두에게 _**공통적인 작업 설정**_ 
 
@@ -147,7 +147,7 @@
     - Leaf일수도, Composite을 재귀적으로 호출할수도 있다.
   - 중간 결과물 처리 및 최종 결과를 Client에 반환
 #### 구조 예시 
-![img.png](Structural/Compositre/StructureExample.png)
+![img.png](Compositre/StructureExample.png)
 
 ### 사용시기 
 - 객체의 구조가 트리로 표현되는 상황
@@ -166,13 +166,8 @@
   - Component에 선언되는 메소드가 ***공통으로 활용될 수 있는 의미***를 가져야한다. 
 
 ### 구조 예시 
-![img.png](Structural/Compositre/StructureExample.png)
+![img.png](Compositre/StructureExample.png)
 
 
-### Decorator Pattern 
+## Decorator Pattern 
 
-### Facade Pattern 
-
-### Flyweight Pattern 
-
-### Proxy Pattern 
