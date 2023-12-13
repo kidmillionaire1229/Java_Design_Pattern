@@ -38,5 +38,45 @@
 - 새로운 제품 추가 시 모든 팩토리 구현 로직에 새로운 생성 함수 추가되어야한다. 
   - 새로운 Furniture 추가시 , createFurniture를 FurnitureFactory와 이를 구현한 구체 팩토리 클래스에 추가해야한다. 
 ## Builder Pattern
+### Builder Pattern이란? 
+- 복잡한 객체 생성 과정과 표현 방법을 분리하여 클라이언트가 ***다양한 구성을 조합***하여 객체를 생성할 수 있도록 하는 생성 패턴 <br/> <br/>
+- 만약, 객체를 생성하고 초기화하려고 할 때, 해당 클래스의 멤버 변수가 많은 경우에 모든 멤버 변수를 생성자에 넣어야할 필요가 있을까? 
+- 특정 객체 생성 시 모든 멤버 변수의 값이 쓰이지 않는다면?
+![img.png](Builder/BeforeBuilder.png)
+- 생성자(House)에 전달되어야할 매개변수의 개수가 많다. 
+- 특정 House 객체의 종류에 따라 필요한 변수가 각각 다 다르다. 
+  - 다수의 null 값을 생성자에 넣어야한다. 
+### 구현 
+- 클래스 내에서 객체 생성에 관련된 코드를 빼내서 Builder라는 별도의 클래스로 분리 
+  - 객체의 변수 값을 설정할 수 있게 함 
+![img.png](Builder/AfterBuilder.png)
+  - HouseBuilder 클래스가 Builder로써, House라는 객체를 생성한다. 
+  - 각각의 객체마다 필요한 변수만 HouserBuilder의 메서드에 인자로 전달하면 된다. 
+### 구조 
+![img.png](Builder/BuilderStructure.png)
+- Builder interface 
+  - 모든 종류의 빌더에 공통적으로 제품을 build하는 함수들(build steps) 선언 
+- Concrete Builders 
+  - Builder interface를 구현 
+  - Builder interface에서의 공통적인 build함수 제외 다른 step의 build 함수 구현 
 
+- Product 
+  - Concrete Builder 클래스 내에 객체로 존재
+  - ConcreteBuilder의 함수(build step)들을 통해 해당 객체의 변수들의 build됨 
+
+- Director 
+  - 자주 등장하는 build 함수 조합, 순서를 (step configuration) 함수 내에 묶어서 구현 
+
+- 예시 
+![img.png](Builder/StructureExample.png)
+
+### 장점 
+- 구성 하기 복잡한 객체를 순차적으로 만들 수 있음 
+- 복잡한 객체를 만드는 구체적인 과정을 숨길 수 있다. 
+- 동일한 프로세스를 통해 ***구성에 따라 다른 객체***를 만들 수 있음 
+
+### 단점 
+- 선행적으로 Builder 객체를 먼저 만들어야 원하는 객체 생성 가능 
+- 객체 생성을 위한 코드 대비 구조적으로 복잡해짐 
+  - 간단한 객체는 생성자를 통해서 만드는 게 좋을 수도 있다. 
 ## Prototype Pattern 
