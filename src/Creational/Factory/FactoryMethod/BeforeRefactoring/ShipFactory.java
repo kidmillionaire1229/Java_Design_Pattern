@@ -1,5 +1,14 @@
 package Creational.Factory.FactoryMethod.BeforeRefactoring;
 
+/**
+ * 문제점
+ * Ship - Ship Factory 사이의 강한 결합
+ * 확장을 시도하게 되면 기존의 코드의 수정이 발생
+ *
+ *
+ * 1. 요구사항 변경으로 새로운 배(e.g blueship)이 추가 되어야 한다면?
+ * 2. Ship 클래스에 새로운 멤버 변수가 추가 된다면?
+ */
 public class ShipFactory {
     public static Ship orderShip(String name){
         validate(name);

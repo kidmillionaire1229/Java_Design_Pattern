@@ -1,6 +1,6 @@
 ## [Singleton Pattern](Singleton.md)
 
-## Factory Pattern
+## [Factory Pattern](FactoryMethod/FactoryMethod.md)
 
 ## Abstract Factory Pattern
 
