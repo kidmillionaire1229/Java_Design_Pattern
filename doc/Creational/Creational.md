@@ -2,8 +2,9 @@
 
 ## [Factory Pattern](FactoryMethod/FactoryMethod.md)
 
-## Abstract Factory Pattern
+## Enum Factory Pattern 
 
+## Abstract Factory Pattern
 ### 추상 팩토리 패턴이란? 
 - 연관 있는 여러 객체(제품) 군(family)의 생성을 추상화한 생성 패턴 
 - vs 팩토리 메서드 
@@ -37,6 +38,8 @@
   - 제품, 팩토리들의 구체 클래스를 모두 구현해줘야한다. 
 - 새로운 제품 추가 시 모든 팩토리 구현 로직에 새로운 생성 함수 추가되어야한다. 
   - 새로운 Furniture 추가시 , createFurniture를 FurnitureFactory와 이를 구현한 구체 팩토리 클래스에 추가해야한다. 
+
+
 ## Builder Pattern
 ### Builder Pattern이란? 
 - 복잡한 객체 생성 과정과 표현 방법을 분리하여 클라이언트가 ***다양한 구성을 조합***하여 객체를 생성할 수 있도록 하는 생성 패턴 <br/> <br/>
@@ -79,4 +82,36 @@
 - 선행적으로 Builder 객체를 먼저 만들어야 원하는 객체 생성 가능 
 - 객체 생성을 위한 코드 대비 구조적으로 복잡해짐 
   - 간단한 객체는 생성자를 통해서 만드는 게 좋을 수도 있다. 
+
 ## Prototype Pattern 
+### 프로토 타입패턴이란? 
+- 기존 객체를 복제 (clone)하여 새로운 객체를 만드는 생성 패턴 
+  - 클래스에 의존하지 않으면서 기존 객체를 복사 
+  - 원형이 되는(prototypical) 인스턴스를 사용하여 생성할 객체의 종류를 명시 
+  - 만들어진 견본을 복사해서 새로운 객체 생성 
+<br/><br/>
+- 객체의 생성/복사가 까다로울 수 있는 상황 
+  - private/protected 멤버 변수 때문에 클래스 외부에서 객체를 복사하지 못할 수 있다. 
+  - 객체 생성에 따른 리소스가 많이 요구 될 때 새로 생성하는 것은 비효율적이다. 
+
+### 구조
+![img.png](Prototype/Structure.png)
+- 복제되는 실제 객체에 복제 프로세스를 위임한다. 
+- clone이라는 공통의 인터페이스를 가지게 한다. 
+
+### 구현 예시 
+- Java Cloneable Interface
+  - Cloneable interface를 구현
+  - clone()를 오버라이딩 
+
+### 얕은 복사 vs 깊은 복사 
+![img.png](Prototype/deepandshallowcopy.png)
+#### 얕은 복사 
+- 완전한 복사가 이루어지지 않음
+- 같은 주소의 객체를 참조함 
+- 원본 객체가 값 변경시, 복사된 객체도 같은 주소의 객체를 참조하기 있기 때문에 값이 변경됨 
+
+### 깊은 복사 
+- 완전한 복사가 이루어짐 
+- 복사된 객체가 별도의 주소 공간의 별도로 생성된 객체를 가리킨다. 
+- 원본 객체가 값 변경하더라도, 복사 객체의 값은 독립적인 주소 공간에 위치해 있기 때문에 수정되지 않는다. 
