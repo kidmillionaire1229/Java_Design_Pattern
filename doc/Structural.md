@@ -103,9 +103,70 @@
       - 상위 수준 논리의 구현
     - Implementation 
       - 구현 플랫폼 세부 정보
-### composite pattern
 
-<img width="533" alt="composite" src="https://github.com/kidmillionaire1229/Java_Design_Pattern/assets/101498204/635127ce-c059-40be-a4a5-de9184f609e9">
+## composite pattern
+### 복합체 패턴이란? 
+- 전체-부분 관계의 트리 구조로 표현되는 객체들을 ***단일 객체처럼 취급***할 수 있게 해주는 패턴 
+  - 단일 객체와 복합 객체를 ***동일한 인터페이스를 사용하여 처리***하기 위함 
+
+### 필요 상황 예시 
+#### 주문 시스템에서 여러 상품을 담은 상자의 가격 계산 시 
+- 개요 
+  - 한 box에 여러 products와 좀 더 작은 box들을 담을 수 있다. 
+  - 작은 box들 내에도 여러 products를 담을 수 있다.
+  - 상자의 가격을 계산하기 위해서는 내부 제품을 모두 살펴보면서 가격을 합산해야한다.
+<br/><br/>
+- 적용 전
+  - 트리 전체 순회를 하면서 box와 product의 type을 구분하여 계산시 코드가 복잡해진다.
+<br/><br/>
+- Composite Patern 적용 
+  - 가격 계산 메소드에서 _**Products와 boxes에 대해 동일하게**_ 작업할 수 있게 구현 
+    - Products 
+      - _**단일 제품의 가격**_ 반환 
+    - Box 
+      - Box내 _**products의 총 가격**_ 반환
+  
+  - 객체들의 구체적인 클래스 타입 (Box인지 Products인지) 신경 쓸 필요가 없음 
+  - 재귀적인 구조 사용
+    - Box에서 또 다른 Sub Box 재귀적인 호출 
+    - 단일 Products 나올 때까지 재귀 호출 반복 
+### 구조 
+![img.png](Structural/Compositre/CompositeStructure.png)
+- Component interface 
+  - 트리에서 단일 객체(leaf)와 복합 객체(Composite) 모두에게 _**공통적인 작업 설정**_ 
+
+- Leaf 
+  - 트리에서 기본 요소 
+  - 하위요소 존재하지 않음 
+  - Component interface에서 정의한 추상 메소드의 실제 작업 수행 
+
+- Composite 
+  - 다수의 Component를 자식 리스트로 가진다.
+  - Component interface를 통해 하위 객체들과 함께 작동 
+  - 복합체는 작업을 하위 요소에게 위임 
+    - Leaf일수도, Composite을 재귀적으로 호출할수도 있다.
+  - 중간 결과물 처리 및 최종 결과를 Client에 반환
+#### 구조 예시 
+![img.png](Structural/Compositre/StructureExample.png)
+
+### 사용시기 
+- 객체의 구조가 트리로 표현되는 상황
+- 단일 / 복합 객체의 관계를 단순화하여 ***균일하게 처리***하고 싶을 때 
+
+### 장점 
+- ***다형성 재귀***를 통해 복잡한 트리 구조를 보다 편리하게 처리 
+  - 다시 Compostite를 호출 가능 
+- OCP 준수 
+  - 새로운 leaf 클래스 추가하더라도 클라이언트에는 영향이 없음 
+  - Composite의 메소드 호출만 하면된다. 
+
+### 단점
+- 재귀 호출 특징 상 트리 깊이가 깊어지면 디버깅에 어려움이 생김 
+- 기능이 너무 다른 클래스들 간에는 ***공통 인터페이스 설계***가 까다로움 
+  - Component에 선언되는 메소드가 ***공통으로 활용될 수 있는 의미***를 가져야한다. 
+
+### 구조 예시 
+![img.png](Structural/Compositre/StructureExample.png)
 
 
 ### Decorator Pattern 
