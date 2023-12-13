@@ -1,4 +1,4 @@
-package Creational.Builder;
+package Creational.Builder.example;
 
 import java.util.stream.Stream;
 

@@ -1,4 +1,4 @@
-package Creational.Builder;
+package Creational.Builder.implementation;
 
 public interface Builder {
     void reset();

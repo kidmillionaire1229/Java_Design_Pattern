@@ -1,4 +1,6 @@
-package Creational.Builder;
+package Creational.Builder.implementation;
+
+import Creational.Builder.implementation.Builder;
 
 /**
  * 자주 사용하는 객체의 조합을 함수에 구현

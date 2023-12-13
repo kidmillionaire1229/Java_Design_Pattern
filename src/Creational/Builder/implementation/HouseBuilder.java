@@ -1,8 +1,10 @@
-package Creational.Builder;
+package Creational.Builder.implementation;
 
 
+import Creational.Builder.implementation.Builder;
+import Creational.Builder.implementation.House;
 
-public class HouseBuilder implements Builder{
+public class HouseBuilder implements Builder {
     private House house;
 
     public HouseBuilder(){
