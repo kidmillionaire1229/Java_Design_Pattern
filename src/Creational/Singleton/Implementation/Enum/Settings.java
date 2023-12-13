@@ -1,4 +1,4 @@
-package Creational.Singleton;
+package Creational.Singleton.Implementation.Enum;
 
 public enum Settings {
     INSTANCE;
