@@ -1,6 +1,8 @@
-package Structural.Bridge;
+package Structural.Bridge.Implementation;
 
-public class TV implements Device{
+import Structural.Bridge.Implementation.Device;
+
+public class TV implements Device {
     private int volume = 30;
     @Override
     public void setVolume(int percent) {

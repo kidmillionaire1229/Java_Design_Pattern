@@ -1,4 +1,4 @@
-package Structural.Bridge;
+package Structural.Bridge.Implementation;
 
 public class Client {
     public static void testDevice(Device device){

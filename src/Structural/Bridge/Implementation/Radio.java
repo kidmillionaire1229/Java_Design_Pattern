@@ -1,6 +1,8 @@
-package Structural.Bridge;
+package Structural.Bridge.Implementation;
 
-public class Radio implements Device{
+import Structural.Bridge.Implementation.Device;
+
+public class Radio implements Device {
     private int volume = 30;
 
 
