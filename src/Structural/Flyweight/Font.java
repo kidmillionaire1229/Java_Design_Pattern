@@ -1,5 +1,8 @@
 package Structural.Flyweight;
 
+/**
+ * Intrinsic object (Flyweight)
+ */
 public class Font {
 
     private final String family;

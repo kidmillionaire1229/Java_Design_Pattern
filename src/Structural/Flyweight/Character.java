@@ -1,5 +1,10 @@
 package Structural.Flyweight;
 
+/**
+ * Context (Extrinsic Object)
+ * - Flyweight : Font
+ * - Unique Object : value, color
+ */
 public class Character {
     private char value;
     private String color;
