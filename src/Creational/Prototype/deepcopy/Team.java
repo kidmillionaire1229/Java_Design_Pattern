@@ -1,5 +1,6 @@
-package Creational.Prototype;
+package Creational.Prototype.deepcopy;
 
+import Creational.Prototype.Employee;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -24,11 +25,10 @@ public class Team implements Cloneable{
     //shallow copy
     @Override
     public Object clone() throws CloneNotSupportedException{
-        /**shallow copy
-        return super.clone();
-        **/
         Team copyTeam = new Team(this.teamName);
-        copyTeam.employeeList = new ArrayList<>(this.employeeList);
+        for (Employee employee : employeeList) {
+            copyTeam.addEmployee(new Employee(employee.getName()));
+        }
         return copyTeam;
     }
 
@@ -41,3 +41,4 @@ public class Team implements Cloneable{
                 && Objects.equals(employeeList, that.employeeList);
     }
 }
+

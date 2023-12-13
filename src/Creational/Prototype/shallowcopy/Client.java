@@ -1,7 +1,10 @@
-package Creational.Prototype;
+package Creational.Prototype.shallowcopy;
+
+import Creational.Prototype.Employee;
 
 public class Client {
     public static void main(String[] args) throws CloneNotSupportedException{
+        System.out.println("-----Shallow Copy-----");
         Team firstTeam = new Team("firstTeam");
         firstTeam.addEmployee(new Employee("James"));
         firstTeam.addEmployee(new Employee("Ted"));
@@ -17,7 +20,7 @@ public class Client {
         //원본 Team의 0번째 index에 있는 Employee를 수정
         firstTeam.getEmployeeList().set(0, new Employee("Gale"));
 
-        //deep copy이기 때문에, copyTeam은 수정되지 않음
+        //shallow copy이기 때문에, firstTeam이 employee 변경하면, copyTeam의 원소도 따라서 변경된다. 
         System.out.println("firstTeam's members: " +firstTeam.getEmployeeList());
         System.out.println("copyTeam's members: " +copyTeam.getEmployeeList());
     }
