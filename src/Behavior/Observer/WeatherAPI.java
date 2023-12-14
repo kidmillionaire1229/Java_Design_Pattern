@@ -40,6 +40,9 @@ public class WeatherAPI implements Publisher{
                 '}';
     }
 
+    /**
+     * Publisher의 상태가 바뀌면 변경사항을 관찰자에게 통보(inform)
+     */
     public void measurementChanged() {
         this.generator = new Random();
         this.temp = generator.nextFloat() * 100;
