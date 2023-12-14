@@ -15,10 +15,10 @@
 - 특정 행동들을 핸들러라는 독립 실행형 객체로 변환 
 - 핸들러를 체인으로 연결하여 체인을 따라 요청을 처리
 - 경우에 따라서는 핸들러가 요청을 체인 뒤로 더 이상 전달 하지 않고 추가 처리를 중지하는 결정을 할 수도 있다. 
-![img.png](CORidea.png)
+![img.png](COR/CORidea.png)
 
 ### 구조 
-![img.png](CORstructure.png)
+![img.png](COR/CORstructure.png)
 - Handler interface
   - 공통적인 인터페이스를 선언 
 
@@ -48,7 +48,48 @@
 - 책임 연쇄로 인한 처리 지연 문제가 발생할 수 있음 
 
 ## Command Pattern 
+### 명령 패턴이란? 
+- 요청을 객체의 형태(Command)로 캡슐화하여 사용자가 보낸 요청을 나중에 이용할 수 있도록 재사용성을 높인 행동 
+  - 요청을 보내는 쪽(invoker)과 요청을 받는 쪽(receiver)을 커맨드를 이용하여 디커플링하여 재사용성을 높이고자함 
+  
+### 필요 상황 예시 
+- 텍스트 편집기 앱을 개발하고 있는 상황에서, 편집기의 다양한 작업을 위한 여러 버튼이 있는 도구 모음을 만든다고 할 때 
+  - 도구 모음의 버튼과 다양한 대화 상자들의 일반 버튼들에 사용할 수 있는 Button 클래스를 생성 
 
+#### 접근 
+- 버튼의 모양은 비슷해 보이지만 각각 다른 기능을 수행해야함 
+- 요청을 처리하기 위한 함수를 자식 클래스로 상속하고 오버라이딩하는 구조로 구성해야 한다면, 기능별로 상속을 다 해주어야한다. 
+![img.png](Command/beforeCommand.png)
+
+#### 문제점 
+- Button 클래스를 수정할 때마다 자식 클래스가 영향을 받는다. 
+- 동일한 기능을 하는 로직이 버튼이 아닌 다른 형태로 표현될 때 해당 기능을 Copy & Paster해야한다. 
+
+#### 명령 패턴의 도입 (아이디어)
+- 인터페이스 객체들이 요청을 직접 보내는 것이 아닌 _**Command을 경유하여 보낸다**_. 
+![img.png](Command/CommandIdea.png)
+
+### 개선 구조 
+![img.png](Command/개선구조.png)
+- 더 이상 다양한 클릭 행동들을 구현하기 위한 버튼의 여러 자식 클래스는 필요하지 않다. 
+- 커맨드는 _**사용자 인터페이스와 비즈니스 로직 간의 결합도를 줄이는**_ 중간 레이어의 역할을 한다. 
+
+### 구조 
+![img.png](Command/CommandStructure.png)
+
+### 장점 
+- SRP 준수 
+  - Invoker와 receiver로 책임을 분리한다. 
+- OCP 
+  - 기존 클라이언트 코드에 변경 없이 새로운 Command 도입 가능 
+- 클라이언트와 receiver 간의 결합도 감소 
+  - 클라이언트는 어떤 Command가 어떤 객체에서 어떻게 실행되는지 세부사항을 알 필요가 없다. 
+- 명령 기록의 실행 취소/재실행 (undo/redo)
+  - Invoker 내부에 Stack을 사용하여 Command history를 관리 가능 
+  - e.g) Stack<Command> commandHistoryList;
+  
+### 단점 
+- Invoker와 receiver 사이에 완전히 새로운 레이어(command)를 도입하기 때문에 코드가 더 복잡해질 수 있다. 
 ## Interpreter pattern 
 
 ## Iterator pattern 
