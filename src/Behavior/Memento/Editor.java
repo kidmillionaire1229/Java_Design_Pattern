@@ -1,14 +1,19 @@
 package Behavior.Memento;
 
+/**
+ * Originator
+ */
 public class Editor {
     private String text;
     private int posX, posY;
 
+    //스냅샷 생성
     public Snapshot create(){
         System.out.println("Create from Editor");
         return new Snapshot();
     }
 
+    //스냅샷 복원
     public void restore(Snapshot snapshot){
         System.out.println("Restore from Editor");
         this.text = snapshot.text;
@@ -39,6 +44,10 @@ public class Editor {
                 '}';
     }
 
+    /**
+     * Memento
+     * 필드, 메서드가 private해도 originator에서 접근 가능함
+     */
     final class Snapshot {
         private String text;
         private int posX, posY;

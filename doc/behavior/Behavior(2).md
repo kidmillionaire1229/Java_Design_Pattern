@@ -46,6 +46,51 @@
 - Facade only 
   -   - 객체들의 하위 시스템에 대한 단순화된 인터페이스를 도입하지만, 새로운 기능을 도입하지 않음
 ## Memento Pattern
+### 메멘토 패턴이란? 
+- 객체의 구현 세부 상항을 공개하지 않으면서 해당 객체의 이전 상태 값을 저장(스냅샷)하고 복원할 수 있게 해주는 행동 패턴 
+
+### 필요 상황 예시 
+- 텍스트 편집기에서 실행 취소를 구현하려고 할 때 
+  - 특정 작업을 수행하기 전에 ***모든 객체의 상태(스냅샷)***를 기록 
+  - 실행 취소하면 기록에서 _**가장 최신 스냅샷을 가져와**_ 복원 
+
+- 객체의 모든 필드를 살펴본 후에 해당 값을 복사해야 한다. 
+  - 대부분의 실제 객체들은 모든 중요한 데이터를 비공개 (캡슐화) 
+  - 공개된 필드이더라도, 객체 일부가 수정되면 복사를 맡은 클래스들은 역시 변경이 되어야함 
+
+### 아이디어 
+- 스냅샷 생성 
+  - 해당 상태의 실제 소유자인 originator에게 위임
+- 스냅샷 저장 
+  - Memento라는 특수 객체에 스냅샷 저장 
+  - Memento를 생성한 객체를 제외한 다른 어떤 객체도 접근 불가능함 
+### 구조 
+![img.png](Memento/MementoStructure.png)
+- Originator
+  - 스냅샷 생성, 복원 
+  - Memento를 inner class로 가지고 있어서 접근 가능 
+- Memento 
+  - Snapshot 
+  - 불변으로 만들고 생성자를 통해 값을 저장 
+    - outer class인 Originator에서 받은 인자를 전달, new 연산자를 통해 생성 
+- Caretaker 
+  - Memento들의 history를 해당 클래스 내에 저장 
+    - Originator에서는 스냅샷 생성, 복원만 담당 
+  - 스냅샷 저장, 복원시 
+    - 값이 저장된 ***editor 객체를 인자***로 받음 
+    - 지역변수인 history stack과 editor를 통해서 snapshot저장과 복원을 자유롭게 할 수 있음 
+
+#### 구조 예시 
+![img.png](Memento/StructureExample.png)
+
+### 장점 
+- 캡슐화를 위반하지 않고 객체의 상태 스냅샷 생성 가능 
+- CareTaker가 Originator의 상태기록(Snapshot history Stack)을 유지
+  - Originator의 코드를 단순화 시킬 수 있음 
+
+### 단점
+- 클라이언트들이 메멘토를 너무 자주 생성하면 메모리 사용이 늘어남 
+- CareTaker에 오래된 Memento를 삭제하고 관리하는 역할이 부여
 
 ## Observer Pattern
 
