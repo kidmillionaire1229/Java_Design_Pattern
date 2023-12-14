@@ -1,5 +1,9 @@
 package Behavior.Visitor;
 
+/**
+ * Concrete Visitor
+ * 기존의 ConcreteElement에 기능을 추가하지 않고, Visitor을 구현한 구체클래스에서 구현하게끔 한다.
+ */
 public class AreaCalculator implements ShapeVisitor{
 
     @Override
