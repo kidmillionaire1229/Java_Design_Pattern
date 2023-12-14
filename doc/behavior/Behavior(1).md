@@ -138,8 +138,50 @@ Expression
 - 언어의 문법이 복잡한 경우 인터프리터 패턴의 ***클래스 계층 구조가 복잡***해짐 
 - 일부 복잡한 언어나 대규모 문장에 대해서는 패턴 적용 시 성능이 저하될 수 있음
 
-
-
 ## Iterator pattern 
+### 반복자 패턴이란? 
+- 컬렉션(Collection)요소들의 기본 표현(리스트,스택,트리)을 _**노출하지 않고**_, 컬렉션 내 _**요소를 하나씩 순회할 수 있도록**_ 하는 행동 패턴
 
+### 필요한 상황 예시 
+- Data Collection은 객체들을 그룹으로 묶어 자료구조에 맞게 저장 
+- 자료구조의 종류에 따라 순회 방법이 달라짐 
+  - 선형적인 자료구조(배열, 리스트)는 순차적으로 요소 조회 
+  - 비선형적인 자료구조(트리, 해시)는 순회의 기준이 필요함 
+- ***컬렉션의 종류를 따지지 않고 순회***할 수 있는 방법이 있을까? 
 
+### 아이디어 
+- 컬렉션의 순회 동작을 Iterator(반복자)라는 별도 객체로 추출 
+![img.png](Iterator/IteratorIdea.png)
+
+### 구조 
+![img.png](Iterator/IteratorStructure.png)
+- Iterator interface 
+  - 컬렉션 순회에 필요한 작업 선언 
+    - getNext 
+      - 다음 원소 반환 
+    - hasMore
+      - 다음 원소가 존재하는지 
+- ConcreteIterator 
+  - 컬렉션 순회를 위한 특정 알고리즘을 구현 
+    - Iterable interface에서 선언된 추상 메서드 구현 
+  - ConcreteCollection의 createIterator 호출 시 Iterator 구현에 적절한 Collection 전달 
+    - 이를 참조하여 추상 메서드 구현하면 된다. 
+- IterableCollection
+  - 컬렉션과 호환되는 반복자를 가져오기 위한 메서드 선언 
+  - Iterator 변수를 반환  
+
+- Concrete Collection 
+  - IterableCollection을 구현 
+  - createIterator
+    - iterator을 생성 후 반환 
+    - ConcreteIterator에 현재 Collection을 인자로 전달 
+    
+  
+
+### 장점 
+- 일관된 Iterator interface를 사용해 ***여러 종류의 컬렉션에 대해 동일한 순회 인터페이스***를 제공 
+- 클라이언트는 컬렉션 _**내부 구조 및 순회 방식을 알지 않아도**_ 된다. 
+- 컬렉션의 _**구현과 접근하는 부분을 반복자로 분리해**_ 결합도 감소 
+### 단점 
+- 만약 앱이 간단한 컬렉션에서만 작동하는 경우 패턴 적용시 코드가 복잡해짐 
+- Iterator 객체를 만드는 것이 필요한 상황인지 판단할 필요가 있음 
