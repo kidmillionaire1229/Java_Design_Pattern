@@ -91,6 +91,54 @@
 ### 단점 
 - Invoker와 receiver 사이에 완전히 새로운 레이어(command)를 도입하기 때문에 코드가 더 복잡해질 수 있다. 
 ## Interpreter pattern 
+### 해석자 패턴이란? 
+- 언어(language)의 문법 규칙을 표현하고, 해당 언어를 해석하는데 사용되는 패턴
+  - 컴파일러, 인터프리터를 개발할 때 적용되며 언어의 문법 구조를 나타내는데 유용하다. 
+  - 문법 규칙을 _**클래스로 표현**_
+    - 클래스를 조합하여 언어의 문장 해석 구조를 만듬 
+  - 새로운 언어를 추가하거나 기존 언어의 문법을 변경할 때 유연하게 확장 가능 
+
+### 필요 상황 예시
+- Postfix Expression
+  - 특정 연산자는 가장 마지막에 등장한 두 피연산자에 대해 계산
+  - 가장 마지막으로 등장한 피연산자 (결과값)을 파악하기 위해 Stack을 활용
+
+### 구조 
+![img.png](Interpreter/InterpreterStructure.png)
+Context
+- 모든 expression에서 사용하는 공통된 정보
+- Postfix Expression에서는 HashMap형식으로 구현 
+  - 변수 - 변수의 값 (x:1, y:2)
+
+Expression 
+- interpret 메서드 선언 
+  - 해당 표현은 어떻게 해석하여 계산할 것인지 선언 
+- Context를 인자로 받음 
+  - 참조하여 인자의 값을 얻어옴 
+
+- ConcreteExpression
+  - interpret 메서드를 Expression의 종류에 따라 다르게 구현 
+  - TerminalExpression
+    - Expression 형식의 변수 하나를 저장  
+    - 그 자체로 종료된다. 
+    - 변수에 대한 값을 Context로 부터 가져와서 반환하면된다. 
+    - e.g) X -> 1 
+  - NonTerminalExpression
+    - 다른 expression들을 재귀적으로 참조 
+    - Expression형식의 변수 두개를 저장 
+      - interpret 호출시, 변수의 interpret을 재귀적으로 호출 
+      - +, -, *등에 따라 interpret은 다르게 구현 
+      - Terminal Expression의 interpret이 호출되면 재귀 중지 
+### 장점 
+- 새로운 ***언어 요소나 문법 규칙을 추가***하기가 유연함 
+- 단순한 문법을 가지는 언어의 경우 효과적 
+- 언어의 문법이나 _**규칙이 변경되더라도 대응이 쉽다**_. 
+
+### 단점 
+- 언어의 문법이 복잡한 경우 인터프리터 패턴의 ***클래스 계층 구조가 복잡***해짐 
+- 일부 복잡한 언어나 대규모 문장에 대해서는 패턴 적용 시 성능이 저하될 수 있음
+
+
 
 ## Iterator pattern 
 
