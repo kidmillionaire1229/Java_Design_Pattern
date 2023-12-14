@@ -11,8 +11,13 @@ public abstract class FileProcessor {
         this.path = path;
     }
 
-    //템플릿 메서드
-    //final : override 불가
+    /**
+     * 템플릿 메서드
+     * final선언하여 오버라이딩 금지
+     * [구성]
+     * - 디폴트 단계 메서드
+     * - 추상 단계 메서드(getInitial, calculate)
+     */
     public final int process() {
         try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
             int result = getInitial();
@@ -27,6 +32,10 @@ public abstract class FileProcessor {
         }
     }
 
+    /**
+     * 추상 단계 메서드
+     * ConcreteClass(자식 클래스)에서 오버라이딩
+     */
     protected abstract int calculate(int result, int number);
 
     protected abstract int getInitial();

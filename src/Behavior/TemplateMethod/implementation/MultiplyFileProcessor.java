@@ -1,6 +1,8 @@
 package Behavior.TemplateMethod.implementation;
 
-import Behavior.TemplateMethod.implementation.FileProcessor;
+/**
+ * ConcreteClass 2
+ */
 
 public class MultiplyFileProcessor extends FileProcessor {
 
@@ -8,11 +10,17 @@ public class MultiplyFileProcessor extends FileProcessor {
         super(path);
     }
 
+    /**
+     * multiply 구현
+     */
     @Override
     protected int calculate(int result, int number) {
         return result * number;
     }
 
+    /**
+     * 곱셈의 초기값을 1로 선언
+     */
     @Override
     protected int getInitial() {
         return 1;
