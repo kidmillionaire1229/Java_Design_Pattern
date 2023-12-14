@@ -1,10 +1,12 @@
 package Behavior.Strategy.implementation;
 
-import Behavior.Strategy.implementation.Item;
-import Behavior.Strategy.implementation.PaymentStrategy;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Context
+ * : Strategy를 참조, Strategy의 메소드를 호출하여, 전략에 따라 동작하게 함
+ */
 public class ShoppingCart {
     private List<Item> items;
     private PaymentStrategy paymentStrategy;
