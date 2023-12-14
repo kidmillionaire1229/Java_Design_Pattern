@@ -15,6 +15,7 @@ public class LaptopContext {
         this.powerState.pushPowerButton(this);
     }
 
+    //절전 상태
     void setSavingState(){
         System.out.println("Laptop saving Mode");
         this.changeState(new SavingState());

@@ -135,7 +135,51 @@
 - 다수의 관찰자 객체 등록 이후, 사용하지 않는 관찰자를 해지하지 않는다면 메모리 낭비 발생 
 
 ## State Pattern
+### 상태 패턴이란? 
+- 객체의 내부 상태가 변경될 때, 객체 스스로가 상태에 따라 행동을 변경할 수 있도록하는 행동 패턴 
+- e.g) 
+  - TV 전원의 상태에 따라 메소드의 행동이 바뀜 
+    - OnState라면 음량 버튼은 음량을 조절할 수 있다. 
+    - Offstate라면 음량 조절이 불가능함 
+### 필요 상황 예시 
+- Document(문서)클래스는 다음과 같은 상태를 가짐 
+  - Draft(초안), Moderation(검토), Published(출판)
+- Publish 메서드는 _**각 상태에 따라 약간씩 다르게 작동**_ 
+  - Draft : 문서를 검토 상태로 이동 
+  - Moderation : 문서를 공개하거나 관리자에게만 공개 
+  - Published : 아무런 작업을 하지 않음
+![img.png](State/BeforeState.png)
 
+### 아이디어 
+- 객체의 모든 가능한 상태들에 대해서 새 클래스를 만들고 모든 상태별 행동들을 상태 클래스에서 추출(구현)
+![img.png](State/StateIdea.png)
+
+### 구조 
+![img.png](State/StateStructrue.png)
+- State Interface
+  - 상태별 메서드 선언
+- Concrete States
+  - 구체적인 각각의 상태를 클래스로 표현 
+  - State Interface를 구현 
+  - State Interface에서 선언한 메서드를 구현
+    - 각각의 State에 따라 구현 내용이 달라짐 
+- Context
+  - State를 주입 받아 변수로 가짐 
+  - Context의 특정 동작 호출시, 가지고 있는 State 변수에 따라 처리가 달라진다. 
+    - State 변수를 통해 동작 호출 
+    - 자신의 Context 객체(this)을 인자로 전달 
+
+### 구현 코드 설명  
+![img.png](State/TVStateExample.png)
+### 장점 
+- SRP 
+  - 상태에 따른 동작을 개별 클래스(State를 구현한 구체클래스)로 옮겨서 관리 가능 
+- OCP 
+  - 기존 상태 클래스나 컨텍스트를 변경하지 않고 새 상태 도입 가능 
+
+### 단점 
+- 상태 별로 클래스를 생성해야하므로 _**관리해야하는 클래스 수가 증가**_ 
+- 객체에 적용할 상태가 몇 가지 밖에 없거나 거의 상태 변경이 이루어지지 않는 경우 패턴 적용이 과할 수 있음 
 ## Strategy Pattern
 
 ## Template Pattern 
